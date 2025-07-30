@@ -1,0 +1,48 @@
+body {
+    background: #ffff;
+    height: 120vh;
+}
+
+.navbardbs img {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.texthead {
+    font-size: 19px;
+    padding: 20px;
+    margin-top: 80px;
+    font-weight: 700;
+}
+
+.menudbs {
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    box-shadow: 0 3px 13px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.menudbs button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #ed1313;
+    color: #fff;
+    border-radius: 100px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
